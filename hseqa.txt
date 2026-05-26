@@ -163,3 +163,13 @@
 {What should you do if you are trapped in a room with smoke and no other exit exists?/Seal the vents and cracks around the door with anything available*/Open all windows fully to let smoke out/Stand up straight to breathe cleaner air near the ceiling/Hide in a closet until help arrives}
 {Why is it dangerous to run if your clothes are on fire?/Running feeds the fire with more oxygen*/Running prevents the fire from spreading/Running helps extinguish the flames through wind/Running causes the fire to suffocate}
 {Which of the following is listed as a potential heat source for a fire?/All of the listed options*/Open flames/Electrical sources/Friction and sparks}
+{What is the primary action to take before beginning to treat a wound?/Wash hands and wear gloves*/Call for a press conference/Remove all clothing from the patient/Wait for the patient to stop bleeding naturally}
+{What is the first step when dealing with an open bleeding wound?/Stop the bleeding*/Apply a tourniquet immediately/Wash the wound with alcohol/Apply ice directly to the skin}
+{When applying a dressing to a wound, what should be used?/A clean sterile pad*/A dirty piece of cloth/Paper towel/No dressing is required}
+{What is the correct procedure for handling a fractured bone before transport?/Immobilize the fractured joint with a splint*/Massage the broken area/Attempt to reset the bone yourself/Apply heat directly to the fracture}
+{How many joints should a splint cover when immobilizing a fractured limb?/It should cover the joint above and below the fracture*/Only the area of the fracture/It should not cover any joints/It should cover the entire body}
+{What is a characteristic sign of a closed fracture?/Limited movement and potential crunching sounds of bones*/The bone is clearly protruding through the skin/There is no pain at all/The patient can move the limb normally}
+{When securing a splint, what is the most important requirement for the material used?/It must be sturdy and stable/It should be flexible and elastic/It should be made of metal only/It must be soft and pliable}
+{In the event of an open fracture, what should be done after addressing the bone stabilization?/Apply a sterile dressing to the wound/Ignore the wound/Pour water into the wound/Use a heating pad on the skin}
+{What is the main goal when preparing a patient with a fracture for transport?/Keep the broken area completely immobilized*/Encourage the patient to walk/Massage the injury/Keep the limb moving}
+{What is the fundamental safety precaution to prevent infection when providing first aid?/Wash hands and wear gloves*/Use dirty water/Share tools with others/Avoid touching the patient at all}
