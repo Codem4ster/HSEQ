@@ -73,3 +73,13 @@
 {What is the role of a 'Technical Expert' in an audit team according to ISO 19011?/Provides specific knowledge or experience to the audit team*/Conducts the audit independently/Acccompanies the audit team but does not audit/Is appointed by the auditee to assist the audit team}
 {According to ISO 9000 definitions in the lecture, what is 'Nonconformity'?/Non-fulfillment of a requirement*/Fulfillment of a requirement/Freedom of responsibility/An unverified statement of fact}
 {Which phase of the Continuous Improvement Process (CIP) involves a 'target-performance comparison'?/Check*/Plan/Do/Act}
+{In the "genesis-model" of accidents and occupational diseases, what type of analysis focuses on events before an incident occurs?/Proactive Analysis*/Reactive Analysis/Systematic Analysis/Causation Analysis}
+{According to the concept of "Same causes and different effects," what determines whether a falling hammer results in an incident or a fatal accident?/The specific protective equipment worn or situational conditions present*/The height from which the hammer fell/The weight of the falling hammer/The type of work being performed}
+{What are the three steps in Root-Cause Effect Analysis as outlined in the lecture?/Define, Analyze, Prevent*/Plan, Do, Check/Identify, Eliminate, Supervise/Investigate, Report, Discipline}
+{Who developed the cause-and-effect diagram (Fishbone diagram) in Japan during the 1940s for quality control?/Kaoru Ishikawa*/Werner Mitsch/Peter Drucker/Heinrich Perforated}
+{Which accident model represents organizational weaknesses as holes in defensive layers?/Perforated disc-model*/Incident pyramid/Genesis-model/Fault tree analysis}
+{According to the lecture's hierarchy of OHS measures, what is the most effective starting point for risk mitigation?/Eliminate the hazard*/Wearing of PPE/Technical measures/Behavior-based measures}
+{Limitation of working time, reduction of shift length, and task variety are examples of which type of OHS measure?/Organizational measures*/Technical measures/Elimination measures/Behavior-based measures}
+{What are the three kinds of causal connections used when structuring a Causation Tree?/Chain linking, branching, and linkage*/Direct, indirect, and concealed/Linear, parallel, and sequential/Active, latent, and structural}
+{What is the core principle regarding incident avoidance stated in the lecture?/Any incident is avoidable by control of possible causations with reasonable effort*/Incidents are random events that cannot be predicted/Only severe incidents are avoidable with effort/Avoidance requires eliminating all human interactions}
+{Which analysis method uses a flowchart with hazard factors to guide an investigation?/Decision tree*/Checklist/Fishbone diagram/Causation tree}
