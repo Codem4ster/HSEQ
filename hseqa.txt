@@ -83,3 +83,13 @@
 {What are the three kinds of causal connections used when structuring a Causation Tree?/Chain linking, branching, and linkage*/Direct, indirect, and concealed/Linear, parallel, and sequential/Active, latent, and structural}
 {What is the core principle regarding incident avoidance stated in the lecture?/Any incident is avoidable by control of possible causations with reasonable effort*/Incidents are random events that cannot be predicted/Only severe incidents are avoidable with effort/Avoidance requires eliminating all human interactions}
 {Which analysis method uses a flowchart with hazard factors to guide an investigation?/Decision tree*/Checklist/Fishbone diagram/Causation tree}
+{What is the most common occupational disease in the mining sector according to the 2023 BG RCI figures?/Noise-Induced Hearing Loss*/Silicosis/Chronic Bronchitis/Asbestosis}
+{Which of the following is an HSE hazard unique to underground mining as opposed to above-ground mining?/Coal dust explosion*/Embankment landslide/Tailings pile landslide/Traffic hazards}
+{What type of barrier is specifically highlighted in the lecture as a technical control measure to mitigate the consequences of a propagating coal dust explosion underground?/Water trough barrier*/Concrete firewall/Ventilation curtain/Steel blast door}
+{What two shafts are used to manage standard air circulation in an underground mine's ventilation system?/Intake Shaft and Exhaust Shaft*/Inlet Shaft and Outlet Shaft/Fresh Shaft and Toxic Shaft/Suction Shaft and Blow Shaft}
+{According to the 2023 BG RCI accident figures for mining, how many fatal accidents occurred directly at work?/0*/2/5/11}
+{What hazardous phenomenon is described by the German term "Gebirgsschlag" in underground mining operations?/Rock burst*/Methane ignition/Flooding/Mine fire}
+{What is a primary visibility hazard associated with operating heavy haul trucks (SKW) in open-pit mining?/Large blind spots around the vehicle*/Glance reflection from metal trays/Inability to use headlights at night/Lack of rear-view mirrors}
+{Based on the 2023 BG RCI data, which disease category represents 20% of the recognized occupational diseases in mining?/Chronic Bronchitis/Emphysema*/Silicosis/Asbestosis/Vibration-induced white finger}
+{What structural failure is listed as a special hazard characteristic of above-ground (open-pit) mining?/Embankment landslide*/Gas intrusion/Rock burst/Firedamp explosion}
+{What specific hazard must "Firedamp protection" measures control in underground coal mines?/Methane gas emissions*/High underground temperatures/Excessive noise from blasting/Inadequate artificial lighting}
