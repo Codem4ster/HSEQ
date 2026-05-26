@@ -300,6 +300,36 @@
       document.getElementById('final-score').innerText = score;
       document.getElementById('total-questions').innerText = allQuestions.length;
     }
+    // Global keyboard listener
+    window.addEventListener('keydown', (event) => {
+      const quizScreen = document.getElementById('quiz-screen');
+      
+      // Only trigger if the quiz is actually visible
+      if (quizScreen.style.display === 'block') {
+        const nextBtn = document.getElementById('next-btn');
+        const buttons = document.querySelectorAll('.option-btn');
+
+        // 1. Handle Number Keys (1-4)
+        if (event.key >= '1' && event.key <= '4') {
+          const index = parseInt(event.key) - 1;
+          // Check if the button exists and isn't already disabled (answered)
+          if (buttons[index] && !buttons[index].disabled) {
+            buttons[index].click();
+          }
+        }
+
+        // 2. Handle Enter Key
+        if (event.key === 'Enter') {
+          if (nextBtn.style.display === 'block') {
+            // If the "Next" button is visible, Enter moves to next question
+            nextQuestion();
+          } else {
+            // Optional: If you want Enter to pick the first option 
+            // when nothing is selected, you could add logic here.
+          }
+        }
+      }
+    });
   </script>
 </body>
 </html>
