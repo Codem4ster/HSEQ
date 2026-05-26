@@ -103,3 +103,13 @@
 {An audit conducted by the organization itself for self-declaration of conformity is known as what?/Internal audit or first party audit*/External audit or second party audit/Certification audit or third party audit/Regulatory surveillance audit}
 {Who is the person that accompanies an audit team but does not actually audit?/Observer*/Guide/Technical Expert/Auditee}
 {Which concept, popularized by Deming in the 1950s, describes the Continuous Improvement Process used in OH&S management systems?/PDCA (Plan-Do-Check-Act)*/System 5S/Job Safety Analysis/Contractor Management System}
+{Personal Protective Equipment (PPE) is used only when which controls fail to eliminate the hazard?/Elimination, substitution, engineering, and administrative controls*/Financial and budgetary controls/Post-incident legal measures/Only behavioral-based measures}
+{Who is legally responsible for providing required personal protective equipment to employees at no cost?/The employer*/The employee/The local health and safety union/The equipment manufacturer}
+{Which type of hard hat is specifically designed to protect against objects falling from straight overhead, hitting the top of the hat?/Type I*/Type II/Class C/Class G}
+{What is the maximum voltage rating for a Class E (electric) hard hat according to the lecture?/Up to 20,000 volts*/Up to 2,200 volts/Up to 100,000 volts/It has no rated electrical protection}
+{When wearing a face shield for protection against splash or flying objects, what must always be worn underneath it?/Safety glasses or goggles*/A dust mask/Ear defenders/Nothing, the face shield provides complete protection}
+{At what average noise level over an 8-hour period must hearing protection be made available to employees?/85 decibels*/70 decibels/60 decibels/50 decibels}
+{When inserting a roll-down foam earplug, how long should you hold it in the ear canal to allow it to expand and seal?/20 to 30 seconds*/2 to 3 seconds/5 to 10 seconds/Over 60 seconds}
+{According to the lecture, an anchorage point for an safety lifeline must be capable of supporting a minimum dead weight of how many kilograms?/2500 kilograms*/1000 kilograms/1800 kilograms/750 kilograms}
+{All safety belt and lanyard hardware must be capable of withstanding a tensile loading of how many kilograms without breaking or permanently deforming?/1800 kilograms*/2500 kilograms/500 kilograms/7500 kilograms}
+{Safety nets must be provided when workplaces are more than how many meters above the ground, water surface, or other surfaces where safety belts are impractical?/7.50 meters*/2.50 meters/5.00 meters/10.00 meters}
