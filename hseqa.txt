@@ -53,3 +53,13 @@
 {In the risk matrix, if the probability is "Likely" and the severity is "Serious," what is the risk level?/Moderate/High/Very high*/Small}
 {What term describes the "successfully tested practical procedures and advanced processes" used to set safety standards?/State of the Art*/Historical data/Legal minimum/Standard Operating Procedure}
 {Which of the following is categorized as a "Special physical hazard" in the lecture?/Workplace design/Noise and vibration*/Psychological factors/Hazardous substances}
+{How does the WHO define health?/It is only the absence of disease/A state of complete physical, mental, and social well-being*/A condition of physical fitness only/A lack of infirmity}
+{What is the definition of psychological stress according to the lecture?/Any factor in the working environment/The subjective perception of the effect of a psychological factor*/A negative incident causing absence/The objective measurement of workload}
+{Which term describes a world characterized by Volatility, Uncertainty, Complexity, and Ambiguity?/VUCA*/SWOT/HSE/FIFO}
+{In the "VUCA" world model, what is the recommended response to "Complexity"?/Vision/Understanding/Clarity*/Agility}
+{What was the most common reason for early retirement in Germany according to the 2021 data provided?/Cancer/Cardiovascular diseases/Psychological diseases*/Skeletal and muscle issues}
+{Which of these is a social relation factor area in psychological risk assessment?/Working hours/Communication between co-workers and executives*/Physical work equipment/Freedom of action}
+{What is the primary goal of the actions taken after a psychological risk assessment?/To increase the workload/To reduce negative psychological stress and mental load*/To monitor employees' private lives/To eliminate all social interactions}
+{Which stage of the Safety Culture Ladder is described by the phrase "Safety is integrated in our daily tasks and habits"?/Reactive/Calculative/Proactive/Integrated*}
+{What is "collective mindfulness" in the context of safety culture?/The ability of a computer to track errors/The care for co-workers resulting in higher risk awareness*/A mandatory rule for individual concentration/The total number of sick days in a company}
+{What is a major disadvantage of using a questionnaire for a psychological factor survey compared to a workshop?/It is very time-consuming/It offers no insight into qualitative reasons for votes*/It is not fitted for big groups/It requires a high number of facilitators}
