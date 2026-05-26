@@ -113,3 +113,13 @@
 {According to the lecture, an anchorage point for an safety lifeline must be capable of supporting a minimum dead weight of how many kilograms?/2500 kilograms*/1000 kilograms/1800 kilograms/750 kilograms}
 {All safety belt and lanyard hardware must be capable of withstanding a tensile loading of how many kilograms without breaking or permanently deforming?/1800 kilograms*/2500 kilograms/500 kilograms/7500 kilograms}
 {Safety nets must be provided when workplaces are more than how many meters above the ground, water surface, or other surfaces where safety belts are impractical?/7.50 meters*/2.50 meters/5.00 meters/10.00 meters}
+{What structure inside the cochlea is permanently damaged by repeated exposure to loud noise according to the lecture?/Hair cells*/Eardrum/Ear bones/Vestibular nerve}
+{At what lower exposure action value must an employer provide hearing protection to workers and organize training?/80 dB(A)/85 dB(A)/90 dB(A)/75 dB(A)}
+{What is the absolute maximum exposure limit value that a worker's ear must never exceed after accounting for the attenuation of PPE?/87 dB(A)/80 dB(A)/85 dB(A)/140 dB(A)}
+{Which frequency range is human hearing typically most sensitive to and where noise-induced hearing loss first manifests on an audiogram?/4000 Hz*/250 Hz/1000 Hz/12000 Hz}
+{What is the daily exposure action value for Hand-Arm Vibration (HAV) at which an employer must initiate a program of technical and organizational measures?/2.5 m/s²*/5.0 m/s²/1.15 m/s²/0.5 m/s²}
+{Which occupational condition is a well-known vascular symptom resulting from prolonged exposure to Hand-Arm Vibration?/Vibration white finger (Raynaud's phenomenon)/Carpal tunnel syndrome/Tendonitis/Noise-induced hearing loss}
+{What type of optical radiation hazard includes welding arcs and can cause "arc eye" or photokeratitis?/Ultraviolet (UV) radiation/Infrared (IR) radiation/Laser radiation/Microwave radiation}
+{According to the lecture, what is the standard effective dose limit per year for occupationally exposed persons dealing with ionizing radiation?/20 mSv*/1 mSv/50 mSv/400 mSv}
+{What are the three main technical protection principles against ionizing radiation exposure?/Shielding, distance, and time*/Elimination, substitution, and PPE/Ventilation, isolation, and monitoring/Containment, encapsulation, and evacuation}
+{What is the maximum lifelong working live dose permitted for an occupationally exposed person under normal regulations?/400 mSv*/100 mSv/20 mSv/1000 mSv}
