@@ -9,6 +9,7 @@
       --primary: #007bff;
       --success: #28a745;
       --danger: #dc3545;
+      --secondary: #6c757d;
       --background: #f4f7f6;
       --card-bg: #ffffff;
       --text: #333333;
@@ -101,12 +102,20 @@
       font-size: 1.1rem;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 20px;
-      display: none; /* Hidden by default */
+      margin-top: 10px;
     }
 
     .action-btn:hover {
       background-color: #0056b3;
+    }
+
+    #skip-btn {
+      background-color: var(--secondary);
+      margin-top: 20px;
+    }
+
+    #skip-btn:hover {
+      background-color: #5a6268;
     }
 
     #score-screen {
@@ -134,16 +143,17 @@
     <div id="quiz-screen" style="display: none;">
       <h2 id="question-number">Question 1 of x</h2>
       <h3 id="question-text">Question text goes here?</h3>
-      <div id="options-container">
-        </div>
+      <div id="options-container"></div>
       <div id="feedback"></div>
-      <button id="next-btn" class="action-btn" onclick="nextQuestion()">Next Question</button>
+      
+      <button id="skip-btn" class="action-btn" onclick="skipQuestion()">Skip Question</button>
+      <button id="next-btn" class="action-btn" style="display: none;" onclick="nextQuestion()">Next Question</button>
     </div>
 
     <div id="score-screen">
       <h2>Quiz Complete!</h2>
       <p>Your Score: <span id="final-score">0</span> / <span id="total-questions">0</span></p>
-      <button class="action-btn" style="display: block;" onclick="startQuiz()">Restart Quiz</button>
+      <button class="action-btn" onclick="location.reload()">Restart Quiz</button>
     </div>
   </div>
 
@@ -151,8 +161,9 @@
     let allQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
+    let totalInitialQuestions = 0;
+    let questionsAnsweredCount = 0;
 
-    // Fetch the text file when the page loads
     window.onload = async () => {
       try {
         const response = await fetch('hseqa.txt');
@@ -162,36 +173,26 @@
       } catch (error) {
         document.getElementById('loading').innerHTML = `
           <p style="color: red;"><strong>Error loading hseqa.txt!</strong></p>
-          <p>Because this file uses JavaScript to read a local text file, <b>modern browsers will block it if you just double-click the HTML file</b>.</p>
-          <p>You must run this through a local web server (like the VS Code "Live Server" extension, or Python's HTTP server).</p>
+          <p>Run via a local web server to bypass CORS restrictions.</p>
         `;
       }
     };
 
     function parseQuestions(text) {
-      // The 's' flag allows the dot (.) to match newlines
-      // This ensures we capture everything between the outermost curly braces {}
       const regex = /\{([\s\S]*?)\}/g;
       let match;
-      
-      // Reset allQuestions in case of a restart
       allQuestions = [];
       
       while ((match = regex.exec(text)) !== null) {
-        // match[1] is the content inside the curly braces
         const content = match[1].trim();
         if (!content) continue;
 
         const parts = content.split('/');
-        
-        // Ensure we have 1 question and at least 1 answer (adjust 2 to 5 if you require 4 options)
         if (parts.length >= 2) {
           const questionText = parts[0].trim();
-          
-          // Map the remaining parts to an array of option objects
           let options = parts.slice(1)
             .map(opt => opt.trim())
-            .filter(opt => opt.length > 0) // Remove empty strings
+            .filter(opt => opt.length > 0)
             .map(opt => {
               let isCorrect = opt.endsWith('*');
               let cleanText = isCorrect ? opt.slice(0, -1).trim() : opt;
@@ -199,28 +200,24 @@
             });
 
           if (options.length > 0) {
-            // Randomize the order of the options
             options.sort(() => Math.random() - 0.5);
-
-            allQuestions.push({
-              question: questionText,
-              options: options
-            });
+            allQuestions.push({ question: questionText, options: options });
           }
         }
       }
 
       if (allQuestions.length === 0) {
-        document.getElementById('loading').innerText = "No properly formatted questions found in hseqa.txt.";
+        document.getElementById('loading').innerText = "No properly formatted questions found.";
         return;
       }
 
       startQuiz();
     }
+
     function startQuiz() {
-      // Shuffle the questions array
       allQuestions.sort(() => Math.random() - 0.5);
-      
+      totalInitialQuestions = allQuestions.length;
+      questionsAnsweredCount = 0;
       currentQuestionIndex = 0;
       score = 0;
       
@@ -234,17 +231,16 @@
     function showQuestion() {
       const currentQ = allQuestions[currentQuestionIndex];
       
-      // Update UI text
-      document.getElementById('question-number').innerText = `Question ${currentQuestionIndex + 1} of ${allQuestions.length}`;
+      document.getElementById('question-number').innerText = `Question ${questionsAnsweredCount + 1} of ${totalInitialQuestions}`;
       document.getElementById('question-text').innerText = currentQ.question;
       document.getElementById('feedback').innerText = "";
       document.getElementById('next-btn').style.display = 'none';
+      document.getElementById('skip-btn').style.display = 'block';
       
       const optionsContainer = document.getElementById('options-container');
-      optionsContainer.innerHTML = ''; // Clear previous options
+      optionsContainer.innerHTML = '';
 
-      // Create buttons for each option
-      currentQ.options.forEach((option, index) => {
+      currentQ.options.forEach((option) => {
         const button = document.createElement('button');
         button.className = 'option-btn';
         button.innerText = option.text;
@@ -255,11 +251,10 @@
 
     function selectAnswer(selectedButton, isCorrect) {
       const buttons = document.querySelectorAll('.option-btn');
-      
-      // Disable all buttons once an answer is chosen
       buttons.forEach(btn => btn.disabled = true);
 
       const feedbackDiv = document.getElementById('feedback');
+      document.getElementById('skip-btn').style.display = 'none';
 
       if (isCorrect) {
         selectedButton.classList.add('correct');
@@ -271,7 +266,6 @@
         feedbackDiv.innerText = "❌ Incorrect!";
         feedbackDiv.style.color = "var(--danger)";
         
-        // Highlight the correct answer for the user
         const currentQ = allQuestions[currentQuestionIndex];
         buttons.forEach((btn, index) => {
           if (currentQ.options[index].isCorrect) {
@@ -280,14 +274,26 @@
         });
       }
 
-      // Show the Next button
       document.getElementById('next-btn').style.display = 'block';
     }
 
-    function nextQuestion() {
-      currentQuestionIndex++;
+    function skipQuestion() {
+      // Remove the question from current position and push to the end
+      const skippedQuestion = allQuestions.splice(currentQuestionIndex, 1)[0];
+      allQuestions.push(skippedQuestion);
       
-      if (currentQuestionIndex < allQuestions.length) {
+      // We don't increment currentQuestionIndex because the next question
+      // has effectively slid into the current index position.
+      showQuestion();
+    }
+
+    function nextQuestion() {
+      questionsAnsweredCount++;
+      
+      if (questionsAnsweredCount < totalInitialQuestions) {
+        // Since we splice/push for skips, we always remove the successfully answered
+        // question so the next one is always at index 0.
+        allQuestions.splice(currentQuestionIndex, 1);
         showQuestion();
       } else {
         showScore();
@@ -298,35 +304,29 @@
       document.getElementById('quiz-screen').style.display = 'none';
       document.getElementById('score-screen').style.display = 'block';
       document.getElementById('final-score').innerText = score;
-      document.getElementById('total-questions').innerText = allQuestions.length;
+      document.getElementById('total-questions').innerText = totalInitialQuestions;
     }
-    // Global keyboard listener
+
     window.addEventListener('keydown', (event) => {
       const quizScreen = document.getElementById('quiz-screen');
-      
-      // Only trigger if the quiz is actually visible
       if (quizScreen.style.display === 'block') {
         const nextBtn = document.getElementById('next-btn');
+        const skipBtn = document.getElementById('skip-btn');
         const buttons = document.querySelectorAll('.option-btn');
 
-        // 1. Handle Number Keys (1-4)
         if (event.key >= '1' && event.key <= '4') {
           const index = parseInt(event.key) - 1;
-          // Check if the button exists and isn't already disabled (answered)
           if (buttons[index] && !buttons[index].disabled) {
             buttons[index].click();
           }
         }
 
-        // 2. Handle Enter Key
         if (event.key === 'Enter') {
-          if (nextBtn.style.display === 'block') {
-            // If the "Next" button is visible, Enter moves to next question
-            nextQuestion();
-          } else {
-            // Optional: If you want Enter to pick the first option 
-            // when nothing is selected, you could add logic here.
-          }
+          if (nextBtn.style.display === 'block') nextQuestion();
+        }
+
+        if (event.key === 's' || event.key === 'S') {
+            if (skipBtn.style.display === 'block') skipQuestion();
         }
       }
     });
