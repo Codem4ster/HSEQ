@@ -3,261 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSE Training Assessment</title>
+    <title>Randomized Quiz</title>
     <style>
         :root {
-            --primary-blue: #2c3e50;
-            --safety-yellow: #f1c40f;
-            --success-green: #27ae60;
-            --danger-red: #c0392b;
-            --bg-gray: #ecf0f1;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary-color: #4a90e2;
+            --success-color: #2ec4b6;
+            --error-color: #e71d36;
+            --text-color: #2b2d42;
         }
 
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            margin: 0; 
-            background-color: var(--bg-gray);
-            color: #333;
-        }
-
-        #quiz-container { 
-            background: white; 
-            padding: 0; 
-            border-radius: 8px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-            width: 95%; 
-            max-width: 600px; 
-            overflow: hidden;
-        }
-
-        .header-bar {
-            background-color: var(--primary-blue);
-            color: var(--safety-yellow);
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 5px solid var(--safety-yellow);
-        }
-
-        .header-bar h1 {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-top: 0;
             font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .quiz-content {
-            padding: 2rem;
-        }
-
-        #question-text {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
             line-height: 1.4;
-            color: var(--primary-blue);
         }
 
-        .options-container { 
+        .progress {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .options-container {
             display: flex;
             flex-direction: column;
-            gap: 12px; 
-            margin: 20px 0; 
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        button { 
-            padding: 15px; 
-            border: 2px solid #ddd; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            background: #fff; 
-            transition: all 0.2s ease; 
-            font-size: 1rem; 
+        .btn {
+            background-color: #f0f2f5;
+            border: 2px solid #e4e6eb;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 1rem;
             text-align: left;
-            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+            color: var(--text-color);
         }
 
-        button:hover:not(:disabled) { 
-            background: #f8f9fa;
-            border-color: var(--primary-blue);
+        @media (hover: hover) {
+            .btn:hover:not(:disabled) {
+                background-color: #e4e6eb;
+                border-color: #ccd0d5;
+            }
         }
 
-        button:disabled { cursor: default; }
+        .btn:disabled {
+            cursor: not-allowed;
+        }
 
-        .correct { 
-            background-color: var(--success-green) !important; 
-            border-color: #1e8449 !important; 
+        .btn.correct {
+            background-color: var(--success-color);
             color: white;
+            border-color: var(--success-color);
         }
 
-        .incorrect { 
-            background-color: var(--danger-red) !important; 
-            border-color: #922b21 !important; 
+        .btn.wrong {
+            background-color: var(--error-color);
             color: white;
+            border-color: var(--error-color);
         }
 
-        #feedback { 
-            margin-top: 15px; 
-            font-weight: 600; 
-            min-height: 1.5em;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .hidden { display: none; }
-
-        #next-btn { 
-            background-color: var(--primary-blue); 
-            color: white; 
-            border: none; 
-            width: 100%; 
-            text-align: center;
+        .feedback {
+            margin-top: 20px;
             font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 10px;
+            font-size: 1.1rem;
+            text-align: center;
+            min-height: 24px;
         }
 
-        #next-btn:hover {
-            background-color: #34495e;
-        }
+        .feedback.correct-text { color: var(--success-color); }
+        .feedback.wrong-text { color: var(--error-color); }
 
-        #setup-msg {
-            padding: 40px;
+        .action-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
             text-align: center;
         }
 
-        /* Mobile specific adjustments */
-        @media (max-width: 480px) {
-            .header-bar h1 { font-size: 1.1rem; }
-            .quiz-content { padding: 1.2rem; }
-            #question-text { font-size: 1.1rem; }
-            button { padding: 12px; font-size: 0.95rem; }
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .score-screen {
+            text-align: center;
+        }
+
+        .score-text {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: var(--primary-color);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div id="quiz-container">
-    <div class="header-bar">
-        <h1>HSE Quiz</h1>
-    </div>
-    
-    <div id="setup-msg">Initializing safety modules...</div>
-
-    <div id="game-track" class="hidden quiz-content">
-        <div id="question-text">Question loading...</div>
+<div class="quiz-container">
+    <div id="quiz-screen">
+        <div class="progress" id="progress">Question 1 of 0</div>
+        <h2 id="question-text">Loading questions...</h2>
         <div class="options-container" id="options"></div>
-        <div id="feedback"></div>
-        <button id="next-btn" class="hidden">Continue to Next Module</button>
+        <div class="feedback" id="feedback"></div>
+        <button id="next-btn" class="action-btn hidden">Next Question</button>
+    </div>
+
+    <div id="score-screen" class="hidden score-screen">
+        <h2>Quiz Completed!</h2>
+        <div class="score-text" id="final-score">0 / 0</div>
+        <p id="score-commentary"></p>
+        <button id="restart-btn" class="action-btn">Restart Quiz</button>
     </div>
 </div>
 
 <script>
     let allQuestions = [];
-    let recentIndices = [];
-    let currentQuestion = null;
+    let shuffledQuestions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
 
-    async function loadQuestions() {
+    // Elements
+    const quizScreen = document.getElementById('quiz-screen');
+    const scoreScreen = document.getElementById('score-screen');
+    const progressEl = document.getElementById('progress');
+    const questionEl = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options');
+    const feedbackEl = document.getElementById('feedback');
+    const nextBtn = document.getElementById('next-btn');
+    const finalScoreEl = document.getElementById('final-score');
+    const restartBtn = document.getElementById('restart-btn');
+
+    // 1. Fetch and Parse the hseqa.txt file
+    async function loadQuizData() {
         try {
             const response = await fetch('hseqa.txt');
+            if (!response.ok) throw new Error('Could not find hseqa.txt');
             const text = await response.text();
             
+            // Regex to find content inside brackets: (...)
             const regex = /\(([^)]+)\)/g;
             let match;
-            
+            allQuestions = [];
+
             while ((match = regex.exec(text)) !== null) {
                 const parts = match[1].split('/');
-                if (parts.length === 5) {
-                    const questionObj = {
-                        text: parts[0],
-                        options: parts.slice(1).map(opt => ({
-                            text: opt.replace('*', ''),
-                            isCorrect: opt.includes('*')
-                        }))
-                    };
-                    allQuestions.push(questionObj);
+                if (parts.length >= 5) {
+                    const question = parts[0].trim();
+                    const options = [];
+                    let correctIndex = 0;
+
+                    for (let i = 1; i <= 4; i++) {
+                        let optionText = parts[i].trim();
+                        if (optionText.endsWith('*')) {
+                            optionText = optionText.slice(0, -1); // Remove the star
+                            correctIndex = i - 1;
+                        }
+                        options.push(optionText);
+                    }
+
+                    allQuestions.push({ question, options, correctIndex });
                 }
             }
-            
-            if (allQuestions.length > 0) {
-                document.getElementById('setup-msg').classList.add('hidden');
-                document.getElementById('game-track').classList.remove('hidden');
-                showNextQuestion();
-            } else {
-                document.getElementById('setup-msg').innerText = "System Error: No training data found.";
+
+            if (allQuestions.length === 0) {
+                questionEl.textContent = "Error: No questions found or file formatting is wrong.";
+                return;
             }
-        } catch (err) {
-            document.getElementById('setup-msg').innerText = "Connection Error: Ensure the assessment server is active.";
+
+            startQuiz();
+
+        } catch (error) {
+            questionEl.textContent = "Error loading quiz text file. Make sure 'hseqa.txt' is in the same folder and you are running a local server.";
+            console.error(error);
         }
     }
 
-    function showNextQuestion() {
-        const feedback = document.getElementById('feedback');
-        const nextBtn = document.getElementById('next-btn');
-        const optionsDiv = document.getElementById('options');
+    // 2. Start / Restart Quiz logic
+    function startQuiz() {
+        // Create a deep copy and shuffle
+        shuffledQuestions = [...allQuestions].sort(() => Math.random() - 0.5);
+        currentQuestionIndex = 0;
+        score = 0;
         
-        feedback.innerText = "";
-        feedback.style.backgroundColor = "transparent";
-        nextBtn.classList.add('hidden');
-        optionsDiv.innerHTML = "";
+        scoreScreen.classList.add('hidden');
+        quizScreen.classList.remove('hidden');
+        
+        showQuestion();
+    }
 
-        const threshold = Math.floor(allQuestions.length * 0.5);
-        let availableIndices = allQuestions
-            .map((_, i) => i)
-            .filter(i => !recentIndices.includes(i));
+    // 3. Display Question
+    function showQuestion() {
+        resetState();
+        const currentQuestion = shuffledQuestions[currentQuestionIndex];
+        
+        // Progress numbering
+        progressEl.textContent = `Question ${currentQuestionIndex + 1} of ${shuffledQuestions.length}`;
+        questionEl.textContent = currentQuestion.question;
 
-        if (availableIndices.length === 0) {
-            recentIndices = [];
-            availableIndices = allQuestions.map((_, i) => i);
-        }
-
-        const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-        currentQuestion = allQuestions[randomIndex];
-
-        recentIndices.push(randomIndex);
-        if (recentIndices.length > threshold) {
-            recentIndices.shift();
-        }
-
-        document.getElementById('question-text').innerText = currentQuestion.text;
-
-        const labels = ['A', 'B', 'C', 'D'];
-        currentQuestion.options.forEach((opt, index) => {
-            const btn = document.createElement('button');
-            btn.innerHTML = `<span style="color: var(--primary-blue); font-weight: bold; margin-right: 10px;">${labels[index]}</span> ${opt.text}`;
-            btn.onclick = () => handleAnswer(btn, opt.isCorrect);
-            optionsDiv.appendChild(btn);
+        currentQuestion.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.innerText = option;
+            button.classList.add('btn');
+            button.addEventListener('click', () => selectOption(button, index, currentQuestion.correctIndex));
+            optionsContainer.appendChild(button);
         });
     }
 
-    function handleAnswer(selectedBtn, isCorrect) {
-        const buttons = document.querySelectorAll('#options button');
-        const feedback = document.getElementById('feedback');
-        const nextBtn = document.getElementById('next-btn');
+    // 4. Reset states between questions
+    function resetState() {
+        nextBtn.classList.add('hidden');
+        feedbackEl.textContent = '';
+        feedbackEl.className = 'feedback';
+        optionsContainer.innerHTML = '';
+    }
 
+    // 5. Option Selected Logic
+    function selectOption(selectedButton, selectedIndex, correctIndex) {
+        const buttons = optionsContainer.querySelectorAll('.btn');
+        
+        // Disable all buttons immediately
         buttons.forEach(btn => btn.disabled = true);
 
-        if (isCorrect) {
-            selectedBtn.classList.add('correct');
-            feedback.innerText = "✓ COMPLIANT: Correct Answer.";
-            feedback.style.color = "var(--success-green)";
+        if (selectedIndex === correctIndex) {
+            selectedButton.classList.add('correct');
+            feedbackEl.textContent = "✨ Correct!";
+            feedbackEl.classList.add('correct-text');
+            score++;
         } else {
-            selectedBtn.classList.add('incorrect');
-            const correctOpt = currentQuestion.options.find(o => o.isCorrect);
-            feedback.innerText = `⚠ NON-COMPLIANT: The correct procedure was: ${correctOpt.text}`;
-            feedback.style.color = "var(--danger-red)";
-            
-            buttons.forEach((btn, idx) => {
-                if (currentQuestion.options[idx].isCorrect) btn.classList.add('correct');
-            });
+            selectedButton.classList.add('wrong');
+            // Highlight the correct one
+            buttons[correctIndex].classList.add('correct');
+            feedbackEl.textContent = "❌ Incorrect.";
+            feedbackEl.classList.add('wrong-text');
         }
+
+        // Show Next button
         nextBtn.classList.remove('hidden');
     }
 
-    document.getElementById('next-btn').onclick = showNextQuestion;
-    loadQuestions();
+    // 6. Next Button Click Handler
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < shuffledQuestions.length) {
+            showQuestion();
+        } else {
+            showScore();
+        }
+    });
+
+    // 7. Show Final Score Screen
+    function showScore() {
+        quizScreen.classList.add('hidden');
+        scoreScreen.classList.remove('hidden');
+        finalScoreEl.textContent = `${score} / ${shuffledQuestions.length}`;
+        
+        const percentage = (score / shuffledQuestions.length) * 100;
+        let commentary = "Keep practicing!";
+        if (percentage === 100) commentary = "Perfect score! Outstanding! 🏆";
+        else if (percentage >= 70) commentary = "Great job! 👍";
+        
+        document.getElementById('score-commentary').textContent = commentary;
+    }
+
+    restartBtn.addEventListener('click', startQuiz);
+
+    // Initial Load
+    window.addEventListener('DOMContentLoaded', loadQuizData);
 </script>
 
 </body>
