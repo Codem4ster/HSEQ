@@ -93,3 +93,13 @@
 {Based on the 2023 BG RCI data, which disease category represents 20% of the recognized occupational diseases in mining?/Chronic Bronchitis/Emphysema*/Silicosis/Asbestosis/Vibration-induced white finger}
 {What structural failure is listed as a special hazard characteristic of above-ground (open-pit) mining?/Embankment landslide*/Gas intrusion/Rock burst/Firedamp explosion}
 {What specific hazard must "Firedamp protection" measures control in underground coal mines?/Methane gas emissions*/High underground temperatures/Excessive noise from blasting/Inadequate artificial lighting}
+{What is the international standard that specifies requirements for an Occupational Health and Safety Management System (OH&S MS)?/ISO 45001*/ISO 9001/ISO 14001/ISO 50001}
+{According to the lecture, which of the following is true regarding what ISO 45001 is NOT?/It is not a legally binding document*/It is not applicable to large companies/It does not allow integration into other processes/It does not require employee participation}
+{How does ISO 45001 define a hazard?/A source or situation with a potential to cause human injury or ill health*/The combination of event consequences and its associated likelihood/A non-fulfillment of a legal compliance standard/An administrative system without proper documentation}
+{Which document provides the specific guidelines for auditing management systems?/ISO 19011*/ISO 45001/ILO-OSH 2001/ISO 9000}
+{What term describes the "records, statements of fact or other information which are relevant to the audit criteria and verifiable"?/Audit Evidence*/Audit Criteria/Audit Findings/Audit Plan}
+{In management systems according to ISO 9000, how is "Nonconformity" defined?/Non-fulfillment of a requirement*/Fulfillment of a requirement/A hazard with high probability/The boundary and extent of an internal audit}
+{What is the description of the activities and arrangements for an audit called?/Audit Plan*/Audit Scope/Audit Criteria/Audit Conclusion}
+{An audit conducted by the organization itself for self-declaration of conformity is known as what?/Internal audit or first party audit*/External audit or second party audit/Certification audit or third party audit/Regulatory surveillance audit}
+{Who is the person that accompanies an audit team but does not actually audit?/Observer*/Guide/Technical Expert/Auditee}
+{Which concept, popularized by Deming in the 1950s, describes the Continuous Improvement Process used in OH&S management systems?/PDCA (Plan-Do-Check-Act)*/System 5S/Job Safety Analysis/Contractor Management System}
