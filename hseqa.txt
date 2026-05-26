@@ -63,3 +63,13 @@
 {Which stage of the Safety Culture Ladder is described by the phrase "Safety is integrated in our daily tasks and habits"?/Reactive/Calculative/Proactive/Integrated*}
 {What is "collective mindfulness" in the context of safety culture?/The ability of a computer to track errors/The care for co-workers resulting in higher risk awareness*/A mandatory rule for individual concentration/The total number of sick days in a company}
 {What is a major disadvantage of using a questionnaire for a psychological factor survey compared to a workshop?/It is very time-consuming/It offers no insight into qualitative reasons for votes*/It is not fitted for big groups/It requires a high number of facilitators}
+{What is the definition of a lagging safety indicator according to the lecture?/A report of an incident that has occurred in the past*/An evaluation conducted before an incident occurs/A checklist used for auditing future performance/A standard for establishing legally binding safety regulations}
+{Which of the following is considered a leading safety indicator?/Staff surveys and safety audits*/Workplace accident statistics/Total work time lost to injuries/Recordable incident rates}
+{In the SMART framework for planning objectives, what does the letter 'M' stand for?/Measurable*/Management/Methodical/Maintenance}
+{According to the accident rating criteria, what is the absenteeism range for an accident to be classified as 'Medium / moderate'?/2-3 days*/0-1 days/4-42 days/42-220 days}
+{What multiplier is standard in many countries to normalize the Lost Time Injury Frequency Rate (LTIFR) per hours worked?/1,000,000*/200,000/100,000/10,000}
+{Which document provides the guidelines for auditing management systems as mentioned in the lecture?/ISO 19011*/ISO 45001/ISO 9000/ISO 18001}
+{How does the lecture define 'Audit Criteria'?/A set of policies, procedures, or requirements used as a reference*/Records, statements of fact, or other verifiable information/The extent and boundaries of an audit/The final outcome of an audit after considering all findings}
+{What is the role of a 'Technical Expert' in an audit team according to ISO 19011?/Provides specific knowledge or experience to the audit team*/Conducts the audit independently/Acccompanies the audit team but does not audit/Is appointed by the auditee to assist the audit team}
+{According to ISO 9000 definitions in the lecture, what is 'Nonconformity'?/Non-fulfillment of a requirement*/Fulfillment of a requirement/Freedom of responsibility/An unverified statement of fact}
+{Which phase of the Continuous Improvement Process (CIP) involves a 'target-performance comparison'?/Check*/Plan/Do/Act}
