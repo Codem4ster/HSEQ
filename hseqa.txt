@@ -43,3 +43,13 @@
 {According to the probability level descriptions, what name is given to a probability that is expected to occur in most circumstances with a likelihood greater than 90%?/Possible/Likely/Almost certain*/Unlikely}
 {A hazard that causes an employee to be absent for more than 14 consecutive days till recovery with no permanent damage is rated under which severity category?/Minor injury or Negligible/Moderate injury or Harmful/Major injury*/Serious injury}
 {What example of an adverse health effect is matched with the hazard material Asbestos in the document?/Metal fume fever/Mesothelioma*/Local burns/Light headache}
+{What describes the characteristics or conditions of hazards?/Risk factors*/Mechanical energy/Ergonomic factors/Psychological factors}
+{Which formula represents Potential Energy ($E_p$) in the physical basics of safety?/E=mc²/Ep = m × g × h*/Ek = ½mv²/F = m × a}
+{Mechanical hazard factors are primarily caused by the release of which type of energy?/Chemical energy/Thermal energy/Mechanical energy*/Electrical energy}
+{According to the ISO 45001 definition, Risk is the combination of the likelihood of occurrence and what?/The cost of the equipment/The severity of injury or ill health*/The age of the worker/The location of the facility}
+{In the Risk Probability levels, what is the description for a 10-50% chance of occurrence?/Rare/Unlikely/Possible*/Likely}
+{Which Severity Rate level describes an injury leading to an absence of 1 to 14 consecutive days?/Minor injury/Moderate injury (Harmful)/Major injury/Serious injury}
+{What is the primary factor determining the severity of a bodily injury from mechanical effects?/The time of the shift/The effective energy/The color of the machine/The weight of the worker}
+{In the risk matrix, if the probability is "Likely" and the severity is "Serious," what is the risk level?/Moderate/High/Very high*/Small}
+{What term describes the "successfully tested practical procedures and advanced processes" used to set safety standards?/State of the Art*/Historical data/Legal minimum/Standard Operating Procedure}
+{Which of the following is categorized as a "Special physical hazard" in the lecture?/Workplace design/Noise and vibration*/Psychological factors/Hazardous substances}
