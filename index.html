@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Randomized Quiz</title>
+    <title>Complete Randomized Quiz</title>
     <style>
         :root {
             --bg-color: #f4f7f6;
@@ -144,8 +144,8 @@
 
 <div class="quiz-container">
     <div id="quiz-screen">
-        <div class="progress" id="progress">Question 1 of 0</div>
-        <h2 id="question-text">Loading questions...</h2>
+        <div class="progress" id="progress">Loading database...</div>
+        <h2 id="question-text">Parsing questions...</h2>
         <div class="options-container" id="options"></div>
         <div class="feedback" id="feedback"></div>
         <button id="next-btn" class="action-btn hidden">Next Question</button>
@@ -176,40 +176,49 @@
     const finalScoreEl = document.getElementById('final-score');
     const restartBtn = document.getElementById('restart-btn');
 
-    // 1. Fetch and Parse the hseqa.txt file
+    // 1. Line-by-Line File Parser (Fixes the 33-question cap)
     async function loadQuizData() {
         try {
             const response = await fetch('hseqa.txt');
             if (!response.ok) throw new Error('Could not find hseqa.txt');
             const text = await response.text();
             
-            // Regex to find content inside brackets: (...)
-            const regex = /\(([^)]+)\)/g;
-            let match;
+            // Split the file contents by lines to handle large datasets properly
+            const lines = text.split(/\r?\n/);
             allQuestions = [];
 
-            while ((match = regex.exec(text)) !== null) {
-                const parts = match[1].split('/');
-                if (parts.length >= 5) {
-                    const question = parts[0].trim();
-                    const options = [];
-                    let correctIndex = 0;
+            lines.forEach((line) => {
+                const trimmedLine = line.trim();
+                // Ensure the line contains a valid bracket format (...)
+                if (trimmedLine.startsWith('(') && trimmedLine.endsWith(')')) {
+                    // Strip the outer brackets
+                    const innerContent = trimmedLine.slice(1, -1);
+                    const parts = innerContent.split('/');
+                    
+                    if (parts.length >= 5) {
+                        const question = parts[0].trim();
+                        const options = [];
+                        let correctIndex = -1;
 
-                    for (let i = 1; i <= 4; i++) {
-                        let optionText = parts[i].trim();
-                        if (optionText.endsWith('*')) {
-                            optionText = optionText.slice(0, -1); // Remove the star
-                            correctIndex = i - 1;
+                        for (let i = 1; i <= 4; i++) {
+                            let optionText = parts[i].trim();
+                            if (optionText.endsWith('*')) {
+                                optionText = optionText.slice(0, -1); // Strip the asterisk
+                                correctIndex = i - 1;
+                            }
+                            options.push(optionText);
                         }
-                        options.push(optionText);
-                    }
 
-                    allQuestions.push({ question, options, correctIndex });
+                        // Only add the question if it parsed correctly and found a right answer
+                        if (correctIndex !== -1) {
+                            allQuestions.push({ question, options, correctIndex });
+                        }
+                    }
                 }
-            }
+            });
 
             if (allQuestions.length === 0) {
-                questionEl.textContent = "Error: No questions found or file formatting is wrong.";
+                questionEl.textContent = "Error: Database loaded, but 0 valid questions were parsed. Check file formatting.";
                 return;
             }
 
@@ -221,9 +230,9 @@
         }
     }
 
-    // 2. Start / Restart Quiz logic
+    // 2. Setup/Shuffle Logic
     function startQuiz() {
-        // Create a deep copy and shuffle
+        // Deep copy and Fisher-Yates or simple random sorting
         shuffledQuestions = [...allQuestions].sort(() => Math.random() - 0.5);
         currentQuestionIndex = 0;
         score = 0;
@@ -234,12 +243,11 @@
         showQuestion();
     }
 
-    // 3. Display Question
+    // 3. Render Question
     function showQuestion() {
         resetState();
         const currentQuestion = shuffledQuestions[currentQuestionIndex];
         
-        // Progress numbering
         progressEl.textContent = `Question ${currentQuestionIndex + 1} of ${shuffledQuestions.length}`;
         questionEl.textContent = currentQuestion.question;
 
@@ -252,7 +260,7 @@
         });
     }
 
-    // 4. Reset states between questions
+    // 4. Inter-question State Reset
     function resetState() {
         nextBtn.classList.add('hidden');
         feedbackEl.textContent = '';
@@ -260,11 +268,9 @@
         optionsContainer.innerHTML = '';
     }
 
-    // 5. Option Selected Logic
+    // 5. Answer Assessment
     function selectOption(selectedButton, selectedIndex, correctIndex) {
         const buttons = optionsContainer.querySelectorAll('.btn');
-        
-        // Disable all buttons immediately
         buttons.forEach(btn => btn.disabled = true);
 
         if (selectedIndex === correctIndex) {
@@ -274,17 +280,15 @@
             score++;
         } else {
             selectedButton.classList.add('wrong');
-            // Highlight the correct one
             buttons[correctIndex].classList.add('correct');
             feedbackEl.textContent = "❌ Incorrect.";
             feedbackEl.classList.add('wrong-text');
         }
 
-        // Show Next button
         nextBtn.classList.remove('hidden');
     }
 
-    // 6. Next Button Click Handler
+    // 6. Next Button Navigation
     nextBtn.addEventListener('click', () => {
         currentQuestionIndex++;
         if (currentQuestionIndex < shuffledQuestions.length) {
@@ -294,7 +298,7 @@
         }
     });
 
-    // 7. Show Final Score Screen
+    // 7. Performance Score Display
     function showScore() {
         quizScreen.classList.add('hidden');
         scoreScreen.classList.remove('hidden');
@@ -309,8 +313,6 @@
     }
 
     restartBtn.addEventListener('click', startQuiz);
-
-    // Initial Load
     window.addEventListener('DOMContentLoaded', loadQuizData);
 </script>
 
